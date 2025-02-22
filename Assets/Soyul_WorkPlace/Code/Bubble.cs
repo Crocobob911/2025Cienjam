@@ -6,13 +6,13 @@ public class Bubble : MonoBehaviour {
     public void SetFraction(string value) { faction = value; }
 
     private int damage;
-    
     [SerializeField] private GameObject effect_particle;
-    
     private Rigidbody2D rb;
     public IObjectPool<GameObject> Pool { get; set; }
 
     private float speed = 25f;
+    
+    [SerializeField] private TrailRenderer tr;
 
     private void Start() {
         faction = "Player";
@@ -21,7 +21,7 @@ public class Bubble : MonoBehaviour {
     
     private void Update() {
         if (transform.position.x > 15f) {
-            Pool.Release(gameObject);
+            ReleaseObj();
         }
         
         transform.position += Vector3.right * speed * Time.deltaTime;
@@ -42,6 +42,11 @@ public class Bubble : MonoBehaviour {
     
     private void Die() {
         GenerateEffect();
+        ReleaseObj();
+    }
+
+    private void ReleaseObj() {
+        tr.Clear();
         Pool.Release(gameObject);
     }
     
