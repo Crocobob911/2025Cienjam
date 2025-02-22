@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -16,6 +17,12 @@ public class BubbleProjectilePoolManager : MonoBehaviour
         else Destroy(this.gameObject);
         
         Init();
+    }
+
+    private void Start() {
+        for (int i = 0; i < maxCapacity; i++) {
+            CreateBubble().SetActive(false);
+        }
     }
 
     private void Init() {
