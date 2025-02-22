@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 public class EnemyPoolManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class EnemyPoolManager : MonoBehaviour
     
     public IObjectPool<GameObject> Pool;
 
-    [SerializeField] private int defaultCapacity;
-    [SerializeField] private int maxCapacity;
+    [SerializeField] private int initSize;
+    [SerializeField] private int maxSize;
 
     private void Awake()
     {
@@ -23,7 +24,14 @@ public class EnemyPoolManager : MonoBehaviour
     private void Init()
     {
         Pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, 
-            false, defaultCapacity, maxCapacity);
+            false, initSize, maxSize);
+        
+        for (int i = 0; i < initSize; i++)
+        {
+            var obj = CreatePooledItem();
+            obj.SetActive(false);
+            Pool.Release(obj);
+        }
     }
     
     private GameObject CreatePooledItem()

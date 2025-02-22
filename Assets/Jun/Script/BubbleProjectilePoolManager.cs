@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 public class BubbleProjectilePoolManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class BubbleProjectilePoolManager : MonoBehaviour
     [SerializeField] private GameObject bubblePrefab;
     public IObjectPool<GameObject> Pool { get; set; }
 
-    [SerializeField] private int defaultCapacity = 1000;
-    [SerializeField] private int maxCapacity = 5000;
+    [SerializeField] private int initSize = 1000;
+    [SerializeField] private int maxSize = 5000;
 
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;
@@ -21,7 +22,14 @@ public class BubbleProjectilePoolManager : MonoBehaviour
 
     private void Init() {
         Pool = new ObjectPool<GameObject>(CreateBubble, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, 
-            true, defaultCapacity, maxCapacity);
+            true, initSize, maxSize);
+        
+        for (int i = 0; i < initSize; i++)
+        {
+            var obj = CreateBubble();
+            obj.SetActive(false);
+            Pool.Release(obj);
+        }
     }
 
     private GameObject CreateBubble() {
