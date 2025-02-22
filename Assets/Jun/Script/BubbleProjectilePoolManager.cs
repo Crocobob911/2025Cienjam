@@ -9,8 +9,8 @@ public class BubbleProjectilePoolManager : MonoBehaviour
     [SerializeField] private GameObject bubblePrefab;
     public IObjectPool<GameObject> Pool { get; set; }
 
-    private int defaultCapacity = 1000;
-    private int maxCapacity = 5000;
+    [SerializeField] private int defaultCapacity = 1000;
+    [SerializeField] private int maxCapacity = 5000;
 
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;

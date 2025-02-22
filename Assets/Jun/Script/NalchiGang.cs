@@ -6,6 +6,8 @@ using UnityEngine;
 public class NalchiGang : MonoBehaviour
 {
     public static NalchiGang INSTANCE;
+
+    private int fishCount = 0;
     
     [SerializeField] private float jumpForce;
     [SerializeField] private Rigidbody2D rb;
@@ -13,6 +15,8 @@ public class NalchiGang : MonoBehaviour
     [SerializeField] private List<Nalchi> nalchiList;
     [SerializeField] private GameObject gangCenter;
 
+    [SerializeField] private SceneController sceneController;
+    
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;
         else Destroy(gameObject);
@@ -51,6 +55,8 @@ public class NalchiGang : MonoBehaviour
     }
 
     public void AddNalchies(int count) {
+        ChangeFishCount(count);
+        
         for (int i = 0; i < count; i++) {
             AddNalchi();
         }
@@ -60,7 +66,18 @@ public class NalchiGang : MonoBehaviour
         }
     }
 
+    private void ChangeFishCount(int count)
+    {
+        fishCount += count;
+
+        if (fishCount <= 0)
+        {
+            sceneController.LoadScene("Game Over");
+        }
+    }
+
     public void RemoveNalchi(Nalchi nalchi) {
+        ChangeFishCount(-1);
         nalchiList.Remove(nalchi);
     }
 }

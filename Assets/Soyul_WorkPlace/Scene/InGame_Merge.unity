@@ -443,6 +443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 313419439432399576, guid: 0c1728118f90e22469e62fb2c996ca28, type: 3}
+  defaultCapacity: 1000
+  maxCapacity: 5000
 --- !u!4 &195819726
 Transform:
   m_ObjectHideFlags: 0
@@ -773,7 +775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &436006292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,6 +1547,7 @@ MonoBehaviour:
   rb: {fileID: 1604761867}
   nalchiList: []
   gangCenter: {fileID: 1517438697}
+  sceneController: {fileID: 2029955256}
 --- !u!114 &1604761869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2102,6 +2105,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7298707614669117334, guid: ccef659b490f6ca4cbe56016d31dad6a, type: 3}
   m_PrefabInstance: {fileID: 2029955254}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2029955256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825178150877370181, guid: ccef659b490f6ca4cbe56016d31dad6a, type: 3}
+  m_PrefabInstance: {fileID: 2029955254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8e0893eee77054db24766aa4d66a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2067285465
 GameObject:
   m_ObjectHideFlags: 0
