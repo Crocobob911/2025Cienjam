@@ -32,6 +32,7 @@ public class BubbleProjectilePoolManager : MonoBehaviour
 
     private GameObject CreateBubble() {
         GameObject bubblePoolObj = Instantiate(bubblePrefab, transform, true);
+        bubblePoolObj.GetComponent<Bubble>().Pool = Pool;
         return bubblePoolObj;
     }
     
