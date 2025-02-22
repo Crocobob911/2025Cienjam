@@ -1,35 +1,23 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class AmbientSpawner : MonoBehaviour
 {
-    private int difficulty;
+    private float spawnTimer = 0;
+    [SerializeField] private float timeBetweenSpawn = 0.5f;
 
-    [SerializeField] private GameObject[] ambient_list;
-
-    private void Awake()
+    private void Update()
     {
-        difficulty = 2;
-    }
-
-    private void Start()
-    {
-        StartCoroutine(SpawnAmbientIter());
-    }
-
-    IEnumerator SpawnAmbientIter()
-    {
-        while (true)
+        if (spawnTimer >= timeBetweenSpawn)
         {
-            SpawnAmbient(ambient_list[Random.Range(0, difficulty)]);
-            yield return new WaitForSeconds(0.25f);
+            spawnTimer = 0;
+            SpawnAmbient();
         }
+        spawnTimer += Time.deltaTime;
     }
 
-    private void SpawnAmbient(GameObject ambient)
+    private void SpawnAmbient()
     {
-        GameObject temp = Instantiate(ambient);
-        temp.transform.position = new Vector2(10f, Random.Range(-9f, 9f));
+        var ambientObj = AmbientPoolManager.Instance.Pool.Get();
+        ambientObj.transform.position = new Vector2(10f,Random.Range(-9f,9f));
     }
 }

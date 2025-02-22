@@ -518,6 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342233847}
   - component: {fileID: 342233846}
+  - component: {fileID: 342233848}
   m_Layer: 0
   m_Name: Ambient Spawner
   m_TagString: Untagged
@@ -537,9 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f77aa43300b09f48a21e4cc722aa6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambient_list:
-  - {fileID: 2840135667263938159, guid: 4dac977c31ecbe54f80f14ef243a271e, type: 3}
-  - {fileID: 269110436167564821, guid: bde2d009ebd90da49b1bbaf1a140af6e, type: 3}
+  timeBetweenSpawn: 0.5
 --- !u!4 &342233847
 Transform:
   m_ObjectHideFlags: 0
@@ -555,6 +554,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1880040993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342233848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342233845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0276a79619e87ff458b57b6532506fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientPrefab_list:
+  - {fileID: 2840135667263938159, guid: 4dac977c31ecbe54f80f14ef243a271e, type: 3}
+  - {fileID: 269110436167564821, guid: bde2d009ebd90da49b1bbaf1a140af6e, type: 3}
+  maxCapacity: 1
+  defaultCapacity: 50
 --- !u!1 &424831193
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +703,7 @@ Transform:
   m_GameObject: {fileID: 424831193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.61111116, y: -0.11, z: -10}
+  m_LocalPosition: {x: -0.59890175, y: -0.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -842,7 +858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &460343268
 Transform:
   m_ObjectHideFlags: 0

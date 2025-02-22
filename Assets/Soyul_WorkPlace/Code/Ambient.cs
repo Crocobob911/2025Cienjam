@@ -1,7 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 public class Ambient : MonoBehaviour
 {
+    public IObjectPool<GameObject> Pool { get; set; }
+    
     private Rigidbody2D rb;
 
     private float speed;
@@ -16,13 +21,13 @@ public class Ambient : MonoBehaviour
         transform.localScale = new Vector2(size, size);
     }
 
-    private void Start()
+    private void Update()
     {
-        rb.linearVelocity = new Vector2(speed, 0f);
+        if(transform.position.x < -13f) Pool.Release(gameObject);
     }
 
-    private void OnBecameInvisible()
+    private void OnEnable()
     {
-        Destroy(gameObject);
+        rb.linearVelocity = new Vector2(speed, 0f);
     }
 }
