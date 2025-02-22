@@ -443,8 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 313419439432399576, guid: 0c1728118f90e22469e62fb2c996ca28, type: 3}
-  defaultCapacity: 1
-  maxCapacity: 5000
 --- !u!4 &195819726
 Transform:
   m_ObjectHideFlags: 0
@@ -470,6 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338219483}
   - component: {fileID: 338219482}
+  - component: {fileID: 338219484}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -489,10 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b90062600252474ea10d81a9c2a50e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_list:
-  - {fileID: 8007817099868423956, guid: 2f3a253d5309cf94394bfbd92f5d332c, type: 3}
-  - {fileID: 4717176790330176439, guid: bfdb9f0ca4a828f40974d76675fe4c10, type: 3}
-  - {fileID: 5106106006391752978, guid: 1fc5ff2ed16adfc4593fefd482174849, type: 3}
+  timeBetweenSpawns: 0
 --- !u!4 &338219483
 Transform:
   m_ObjectHideFlags: 0
@@ -508,6 +504,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1880040993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338219484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338219481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739b597de9701b3488d0e311f3ce9cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab_list:
+  - {fileID: 8007817099868423956, guid: 2f3a253d5309cf94394bfbd92f5d332c, type: 3}
+  - {fileID: 4717176790330176439, guid: bfdb9f0ca4a828f40974d76675fe4c10, type: 3}
+  - {fileID: 5106106006391752978, guid: 1fc5ff2ed16adfc4593fefd482174849, type: 3}
+  defaultCapacity: 15
+  maxCapacity: 30
 --- !u!1 &342233845
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,8 +583,8 @@ MonoBehaviour:
   ambientPrefab_list:
   - {fileID: 2840135667263938159, guid: 4dac977c31ecbe54f80f14ef243a271e, type: 3}
   - {fileID: 269110436167564821, guid: bde2d009ebd90da49b1bbaf1a140af6e, type: 3}
-  maxCapacity: 1
-  defaultCapacity: 50
+  defaultCapacity: 10
+  maxCapacity: 50
 --- !u!1 &424831193
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +717,7 @@ Transform:
   m_GameObject: {fileID: 424831193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.59890175, y: -0.11, z: -10}
+  m_LocalPosition: {x: -0.6573291, y: -0.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1376,7 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1517438698}
   m_Layer: 0
-  m_Name: GangCenter
+  m_Name: FlyingFishesCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1460,7 @@ GameObject:
   - component: {fileID: 1604761867}
   - component: {fileID: 1604761866}
   m_Layer: 0
-  m_Name: NalchiGang
+  m_Name: FlyingFishes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1544,7 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nalchiPrefab: {fileID: 7746546393118085512, guid: 5fc446a10b952bb4d81e89ac49098792, type: 3}
-  defaultCapacity: 1
+  defaultCapacity: 30
   maxCapacity: 150
 --- !u!212 &1604761870
 SpriteRenderer:

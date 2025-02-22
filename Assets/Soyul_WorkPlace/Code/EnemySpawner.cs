@@ -1,35 +1,33 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private int difficulty;
+    private float spawnTimer = 0f;
+    [SerializeField] private float timeBetweenSpawns;
 
-    [SerializeField] private GameObject[] enemy_list;
+    private float time = 0f;
 
-    private void Awake()
+    private void Update()
     {
-        difficulty = 3;
-    }
-
-    private void Start()
-    {
-        StartCoroutine(SpawnEnemyIter());
-    }
-
-    IEnumerator SpawnEnemyIter()
-    {
-        while (true)
+        if (spawnTimer >= timeBetweenSpawns)
         {
-            SpawnEnemy(enemy_list[Random.Range(0, difficulty)], Random.Range(-3, 4));
-            yield return new WaitForSeconds(0.5f);
+            spawnTimer = 0;
+            SpawnEnemy(Random.Range(-3, 4));
         }
+        
+        spawnTimer += Time.deltaTime;
+        time += Time.deltaTime;
+
+        timeBetweenSpawns = time <= 1f ? 1f : 1f / Mathf.Log(time, 2);
     }
 
-    private void SpawnEnemy(GameObject enemy, int lane)
+    private void SpawnEnemy(int lane)
     {
-        GameObject temp = Instantiate(enemy);
-        temp.transform.position = new Vector2(10f, lane * 3f);
+        var enemyObj = EnemyPoolManager.Instance.Pool.Get();
+        enemyObj.transform.position = new Vector2(10f, lane * 3f);
     }
 }

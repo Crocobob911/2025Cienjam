@@ -10,8 +10,8 @@ public class NalchiPoolManager : MonoBehaviour {
     [SerializeField] private GameObject nalchiPrefab;
     public IObjectPool<GameObject> Pool { get; set; }
 
-    [SerializeField] private int defaultCapacity = 1;
-    [SerializeField] private int maxCapacity = 150;
+    [SerializeField] private int defaultCapacity;
+    [SerializeField] private int maxCapacity;
 
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;

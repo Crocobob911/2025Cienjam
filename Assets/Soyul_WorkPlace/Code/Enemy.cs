@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour
 {
     protected string faction; public string GetFaction() { return faction; }
     protected float health;
     protected float max_health;
+    
+    public IObjectPool<GameObject> Pool { get; set; }
 
     [SerializeField] private GameObject[] effect_particles;
 
@@ -42,7 +45,7 @@ public class Enemy : MonoBehaviour
     {
         health = 0;
         GenerateEffect("Die"); // enum?
-        Destroy(gameObject);
+        Pool.Release(gameObject);
     }
 
     private void DisplayNumber(float number)
@@ -74,9 +77,9 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Border")
+        if (other.CompareTag("Border"))
         {
-            Destroy(gameObject);
+            Pool.Release(gameObject);
         }
     }
 }

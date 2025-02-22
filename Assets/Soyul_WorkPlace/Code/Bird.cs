@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bird : Enemy
@@ -18,12 +19,8 @@ public class Bird : Enemy
         speed = -10f;
     }
 
-    protected override void Start()
+    private void OnEnable()
     {
-        // Enemy class
-        base.Start();
-
-        // my class
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 

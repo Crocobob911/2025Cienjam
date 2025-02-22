@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Net : Enemy
@@ -18,12 +19,8 @@ public class Net : Enemy
         speed = -2.5f;
     }
 
-    protected override void Start()
+    private void OnEnable()
     {
-        // Enemy class
-        base.Start();
-
-        // my class
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 
