@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.tag == "Border")
         {
-            Destroy(gameObject);
+            Die_override();
         }
         else if (other.tag == "Enemy")
         {
@@ -30,13 +30,13 @@ public class Projectile : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Die_override();
     }
 
     private void Die()
     {
         GenerateEffect();
-        Destroy(gameObject);
+        Die_override();
     }
 
     private void GenerateEffect()
@@ -47,4 +47,6 @@ public class Projectile : MonoBehaviour
             temp.transform.position = transform.position;
         }
     }
+
+    protected virtual void Die_override() { }
 }

@@ -4,22 +4,22 @@ public class Bubble : Projectile
 {
     private Rigidbody2D rb;
 
-    private float speed;
+    private float speed = 25f;
 
-    private void Awake()
-    {
-        // Projectile class
+    private void Awake() {
         faction = "Player";
         damage = 1;
-
-        // my class
-        rb = GetComponent<Rigidbody2D>();
-
-        speed = 10f;
+    }
+    
+    private void Update() {
+        if (transform.position.x > 15f) {
+            Die_override();
+        }
+        
+        transform.position += Vector3.right * speed * Time.deltaTime;
     }
 
-    private void Start()
-    {
-        rb.linearVelocity = new Vector2(speed, 0);
+    protected override void Die_override() {
+        BubbleProjectilePoolManager.INSTANCE.Pool.Release(gameObject);
     }
 }

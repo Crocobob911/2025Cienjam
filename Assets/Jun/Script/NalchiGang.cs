@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class NalchiGang : MonoBehaviour
 {
+    public static NalchiGang INSTANCE;
     
-    [SerializeField] private int nalchiCount = 0;
     [SerializeField] private float jumpForce;
     [SerializeField] private Rigidbody2D rb;
     
     [SerializeField] private List<Nalchi> nalchiList;
     [SerializeField] private GameObject gangCenter;
 
+    private void Awake() {
+        if(INSTANCE == null)    INSTANCE = this;
+        else Destroy(gameObject);
+    }
+    
     private void Start() {
         AddNalchies(1);
     }
@@ -46,7 +51,6 @@ public class NalchiGang : MonoBehaviour
     }
 
     public void AddNalchies(int count) {
-        nalchiCount += count;
         for (int i = 0; i < count; i++) {
             AddNalchi();
         }
@@ -54,5 +58,9 @@ public class NalchiGang : MonoBehaviour
         foreach (var nalchi in nalchiList) {
             nalchi.GatherToCenter();
         }
+    }
+
+    public void RemoveNalchi(Nalchi nalchi) {
+        nalchiList.Remove(nalchi);
     }
 }

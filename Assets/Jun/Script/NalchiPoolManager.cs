@@ -15,7 +15,7 @@ public class NalchiPoolManager : MonoBehaviour {
 
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;
-        else Destroy(this.gameObject);
+        else Destroy(gameObject);
         
         Init();
     }

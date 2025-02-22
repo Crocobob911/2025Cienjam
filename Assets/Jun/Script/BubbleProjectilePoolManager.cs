@@ -14,13 +14,13 @@ public class BubbleProjectilePoolManager : MonoBehaviour
 
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;
-        else Destroy(this.gameObject);
+        else Destroy(gameObject);
         
         Init();
     }
 
     private void Start() {
-        for (int i = 0; i < maxCapacity; i++) {
+        for (var i = 0; i < maxCapacity; i++) {
             CreateBubble().SetActive(false);
         }
     }
@@ -32,7 +32,6 @@ public class BubbleProjectilePoolManager : MonoBehaviour
 
     private GameObject CreateBubble() {
         GameObject bubblePoolObj = Instantiate(bubblePrefab, transform, true);
-        bubblePoolObj.GetComponent<BubbleProjectile>().Pool = Pool;
         return bubblePoolObj;
     }
     
