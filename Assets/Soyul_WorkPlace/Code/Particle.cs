@@ -13,7 +13,7 @@ public class Particle : MonoBehaviour
     {
         float size = Random.Range(1f, 2f);
         transform.localScale = new Vector2(size, size);
-        rb.linearVelocity = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f));
+        rb.linearVelocity = new Vector2(Random.Range(-7.5f, 7.5f), Random.Range(-7.5f, 7.5f));
         transform.right = rb.linearVelocity;
     }
 

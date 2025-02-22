@@ -11,12 +11,16 @@ public class Projectile : MonoBehaviour
     {
         if (other.tag == "Border")
         {
-            Die();
+            Destroy(gameObject);
         }
         else if (other.tag == "Enemy")
         {
             Enemy oec = other.GetComponent<Enemy>(); // other enemy component
-            if (oec != null) { oec.TakeDamage(damage); }
+            if (oec != null) 
+            {
+                oec.TakeDamage(damage);
+                Die();
+            }
         }
         else
         {

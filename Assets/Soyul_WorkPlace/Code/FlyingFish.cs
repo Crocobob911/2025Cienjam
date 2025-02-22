@@ -44,7 +44,7 @@ public class FlyingFish : MonoBehaviour
         while (true)
         {
             Attack(bubble);
-            yield return new WaitForSeconds(0.0625f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
