@@ -9,7 +9,7 @@ public class BubbleProjectile : MonoBehaviour
     [SerializeField] private float speed;
 
     private void Update() {
-        if (transform.position.x > 20f) {
+        if (transform.position.x > 15f) {
             Pool.Release(gameObject);
         }
         
