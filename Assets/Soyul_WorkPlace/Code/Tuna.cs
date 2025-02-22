@@ -27,8 +27,8 @@ public class Tuna : Enemy
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
+    //private void OnBecameInvisible()
+    //{
+    //    Destroy(gameObject);
+    //}
 }

@@ -12,7 +12,7 @@ public class Ambient : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         speed = Random.Range(-10f, -2.5f);
-        size = Random.Range(0.75f, 1.5f);
+        size = Random.Range(1f, 2f);
         transform.localScale = new Vector2(size, size);
     }
 
