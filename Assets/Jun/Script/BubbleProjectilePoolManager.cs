@@ -1,17 +1,15 @@
-using System;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class NalchiPoolManager : MonoBehaviour {
-    public static NalchiPoolManager INSTANCE;
+public class BubbleProjectilePoolManager : MonoBehaviour
+{
+    public static BubbleProjectilePoolManager INSTANCE;
 
-    [SerializeField] private GameObject nalchiPrefab;
+    [SerializeField] private GameObject bubblePrefab;
     public IObjectPool<GameObject> Pool { get; set; }
 
     [SerializeField] private int defaultCapacity = 1;
-    [SerializeField] private int maxCapacity = 150;
+    [SerializeField] private int maxCapacity = 5000;
 
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;
@@ -21,14 +19,14 @@ public class NalchiPoolManager : MonoBehaviour {
     }
 
     private void Init() {
-        Pool = new ObjectPool<GameObject>(CreateNalchi, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, 
+        Pool = new ObjectPool<GameObject>(CreateBubble, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, 
             true, defaultCapacity, maxCapacity);
     }
 
-    private GameObject CreateNalchi() {
-        GameObject nalchiPoolObj = Instantiate(nalchiPrefab, transform.GetChild(0), true);
-        nalchiPoolObj.GetComponent<Nalchi>().Pool = Pool;
-        return nalchiPoolObj;
+    private GameObject CreateBubble() {
+        GameObject bubblePoolObj = Instantiate(bubblePrefab, transform, true);
+        bubblePoolObj.GetComponent<BubbleProjectile>().Pool = Pool;
+        return bubblePoolObj;
     }
     
     private void OnTakeFromPool(GameObject poolGo) {

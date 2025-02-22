@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class NalchiGang : MonoBehaviour
     
     [SerializeField] private List<Nalchi> nalchiList;
     [SerializeField] private GameObject gangCenter;
+
+    private void Start() {
+        AddNalchies(1);
+    }
 
     void Update()
     {
