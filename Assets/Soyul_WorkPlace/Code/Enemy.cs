@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         health = 0;
+        ScoreManager.INSTANCE.AddScore(5);
         GenerateEffect("Die"); // enum?
         Pool.Release(gameObject);
     }

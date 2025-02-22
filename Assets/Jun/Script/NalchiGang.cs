@@ -14,8 +14,6 @@ public class NalchiGang : MonoBehaviour
     
     [SerializeField] private List<Nalchi> nalchiList;
     [SerializeField] private GameObject gangCenter;
-
-    [SerializeField] private SceneController sceneController;
     
     private void Awake() {
         if(INSTANCE == null)    INSTANCE = this;
@@ -72,7 +70,7 @@ public class NalchiGang : MonoBehaviour
 
         if (fishCount <= 0)
         {
-            sceneController.LoadScene("Game Over");
+            ScoreManager.INSTANCE.GameOver();
         }
     }
 
