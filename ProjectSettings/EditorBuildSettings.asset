@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Soyul_WorkPlace/Scene/Main Menu.unity
+    guid: 01675ab7e8a8e1b4c84aee4acea67736
+  - enabled: 0
+    path: Assets/Soyul_WorkPlace/Scene/In Game.unity
+    guid: 52d5d26108ad4594bb803606078dd04c
+  - enabled: 1
+    path: Assets/Soyul_WorkPlace/Scene/InGame_Merge.unity
+    guid: d01df88422ebbac429007fdef4d771fc
+  - enabled: 1
+    path: Assets/Soyul_WorkPlace/Scene/Game Over.unity
+    guid: 174f480737798014fbd7c421ddbcd47a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
