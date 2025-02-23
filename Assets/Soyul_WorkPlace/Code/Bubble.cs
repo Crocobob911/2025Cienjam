@@ -31,6 +31,7 @@ public class Bubble : MonoBehaviour {
     {
         if (other.CompareTag("Border")) Pool.Release(gameObject);
         else if (other.CompareTag("Enemy")) {
+            SoundManager.instance.PlaySFX(3);
             var oec = other.GetComponent<Enemy>();
             if (oec != null)
             {

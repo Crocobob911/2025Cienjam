@@ -33,6 +33,7 @@ public class NalchiGang : MonoBehaviour
     }
 
     private void Jump() {
+        SoundManager.instance.PlaySFX(0);
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);       
         
@@ -43,6 +44,7 @@ public class NalchiGang : MonoBehaviour
     }
 
     private void AddNalchi() {
+        SoundManager.instance.PlaySFX(1);
         var nalchiObj = NalchiPoolManager.INSTANCE.Pool.Get();
         nalchiList.Add(nalchiObj.GetComponent<Nalchi>());
         nalchiObj.transform.position = gangCenter.transform.position;
@@ -71,6 +73,7 @@ public class NalchiGang : MonoBehaviour
     }
 
     public void RemoveNalchi(Nalchi nalchi) {
+        SoundManager.instance.PlaySFX(2);
         ChangeFishCount(-1);
         nalchiList.Remove(nalchi);
     }
