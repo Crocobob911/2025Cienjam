@@ -877,7 +877,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: In Game
+          m_StringArgument: InGame_Merge
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &633110951
@@ -1386,7 +1386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3505148084859496081, guid: ccef659b490f6ca4cbe56016d31dad6a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7298707614669117334, guid: ccef659b490f6ca4cbe56016d31dad6a, type: 3}
       propertyPath: m_Pivot.x
