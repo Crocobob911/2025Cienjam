@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     }
 
     private int GetMaxHealthByDifficulty() {
-        return 10 + GameManager.INSTANCE.GetDifficulty();
+        return 1 + GameManager.INSTANCE.GetDifficulty()/2;
     }
     
     public virtual void TakeDamage(float damage)
