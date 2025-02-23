@@ -30,10 +30,6 @@ public class NalchiGang : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             Jump();
         }
-
-        if (Input.GetKeyDown(KeyCode.A)) {
-            AddNalchies(1);
-        }
     }
 
     private void Jump() {
