@@ -21,6 +21,7 @@ public class Bird : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
+        
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 

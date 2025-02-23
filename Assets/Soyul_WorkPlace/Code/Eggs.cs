@@ -20,8 +20,11 @@ public class Eggs : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        max_health = Mathf.Log(GameManager.INSTANCE.GetDifficulty(), 10) ;
+        max_health = (int)Mathf.Log(GameManager.INSTANCE.GetDifficulty(), 10) ;
         if(max_health < 1) max_health = 1;
+        health = max_health;
+        
+        textUI.text = health.ToString();
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 
