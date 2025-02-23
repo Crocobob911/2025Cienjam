@@ -20,12 +20,16 @@ public class Eggs : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        max_health = GameManager.INSTANCE.GetDifficulty();
+        max_health = (int)Mathf.Log(GameManager.INSTANCE.GetDifficulty(), 4) ;
+        if(max_health < 1) max_health = 1;
+        health = max_health;
+        
+        textUI.text = health.ToString();
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 
     public override void TakeDamage(float damage) {
-        base.TakeDamage(damage);
         NalchiGang.INSTANCE.AddNalchies((int)damage);
+        base.TakeDamage(damage);
     }
 }
