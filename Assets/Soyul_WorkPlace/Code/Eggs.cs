@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class Bird : Enemy
+public class Eggs : Enemy
 {
     private Rigidbody2D rb;
 
@@ -15,17 +14,18 @@ public class Bird : Enemy
         // my class
         rb = GetComponent<Rigidbody2D>();
 
-        speed = -10f;
+        speed = -7f;
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
+        max_health = GameManager.INSTANCE.GetDifficulty();
         rb.linearVelocity = new Vector2(speed, 0f);
     }
 
-    //private void OnBecameInvisible()
-    //{
-    //    Destroy(gameObject);
-    //}
+    public override void TakeDamage(float damage) {
+        base.TakeDamage(damage);
+        NalchiGang.INSTANCE.AddNalchies((int)damage);
+    }
 }

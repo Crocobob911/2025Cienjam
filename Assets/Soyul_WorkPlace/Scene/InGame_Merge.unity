@@ -673,6 +673,7 @@ MonoBehaviour:
   - {fileID: 8007817099868423956, guid: 2f3a253d5309cf94394bfbd92f5d332c, type: 3}
   - {fileID: 4717176790330176439, guid: bfdb9f0ca4a828f40974d76675fe4c10, type: 3}
   - {fileID: 5106106006391752978, guid: 1fc5ff2ed16adfc4593fefd482174849, type: 3}
+  - {fileID: 3645648779573317454, guid: b981028f01c41ec4b97f290f247681fb, type: 3}
   initSize: 15
   maxSize: 50
 --- !u!1 &342233845
@@ -872,7 +873,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.61111116, y: -0.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1599059959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1530,7 +1531,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 19, y: 21, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1599059959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1996,7 +1997,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.6099997, y: -0.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1599059959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

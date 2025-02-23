@@ -18,13 +18,8 @@ public class Tuna : Enemy
         speed = -5f;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         rb.linearVelocity = new Vector2(speed, 0f);
     }
-
-    //private void OnBecameInvisible()
-    //{
-    //    Destroy(gameObject);
-    //}
 }

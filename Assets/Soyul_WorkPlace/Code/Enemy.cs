@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         gameObject.tag = "Enemy";
     }
 
-    protected virtual void Start()
+    protected virtual void OnEnable()
     {
         InitStat();
     }
