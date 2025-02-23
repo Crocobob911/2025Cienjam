@@ -18,8 +18,14 @@ MonoBehaviour:
   m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
     rid: 8448889765341167616
-  m_OverrideGlobalSceneList: 0
-  m_Scenes: []
+  m_OverrideGlobalSceneList: 1
+  m_Scenes:
+  - m_enabled: 1
+    m_path: Assets/Soyul_WorkPlace/Scene/Main Menu.unity
+  - m_enabled: 1
+    m_path: Assets/Soyul_WorkPlace/Scene/InGame_Merge.unity
+  - m_enabled: 1
+    m_path: Assets/Soyul_WorkPlace/Scene/Game Over.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -166,7 +172,7 @@ MonoBehaviour:
     - line: '|   loadStoreDebugModeEnabled: 0'
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
-    - line: '|   bundleVersion: 0.9'
+    - line: '|   bundleVersion: 1.0.3'
     - line: '|   preloadedAssets:'
     - line: '|   - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
         type: 3}'

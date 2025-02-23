@@ -20,7 +20,7 @@ public class Bubble : MonoBehaviour {
     }
     
     private void Update() {
-        if (transform.position.x > 15f) {
+        if (transform.position.x > 10f) {
             ReleaseObj();
         }
         
