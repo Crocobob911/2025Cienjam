@@ -19,10 +19,17 @@ public class Net : Enemy
         speed = -2.5f;
     }
 
+    protected override void Start() {
+        base.Start();
+        textUI.text = "";
+    }
+
     private void OnEnable()
     {
         rb.linearVelocity = new Vector2(speed, 0f);
     }
+
+    public override void TakeDamage(float damage) { }
 
     //private void OnBecameInvisible()
     //{

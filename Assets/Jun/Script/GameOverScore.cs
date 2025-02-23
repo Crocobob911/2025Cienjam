@@ -10,7 +10,6 @@ public class GameOverScore : MonoBehaviour
     private void Start()
     {
         score = PlayerPrefs.GetInt("Score");
-        Debug.Log(score);
         scoreText.text = score + "pt";
     }
 }

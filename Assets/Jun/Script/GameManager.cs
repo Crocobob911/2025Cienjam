@@ -3,12 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static ScoreManager INSTANCE;
+    public static GameManager INSTANCE;
 
     private int score;
-    private float timer;
+    private float gameTime;
+    private float difficulty;
+    
     [SerializeField] private TextMeshProUGUI scoreText;
     
     [SerializeField] private SceneController sceneController;
@@ -23,12 +25,14 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         score = 0;
+        difficulty = 0;
         UpdateUI();
     }
 
     private void Update()
     {
         AddScoreBySecond();
+        IncreaseDifficultyBySecond();
     }
 
     public void AddScore(int score)
@@ -44,13 +48,21 @@ public class ScoreManager : MonoBehaviour
 
     }
 
+    private void IncreaseDifficultyBySecond() {
+        difficulty += Time.deltaTime;
+    }
+
+    public int GetDifficulty() {
+        return (int)difficulty;
+    }
+    
     private void AddScoreBySecond()
     {
-        timer += Time.deltaTime;
-        if (timer >= 1f)
+        gameTime += Time.deltaTime;
+        if (gameTime >= 1f)
         {
             AddScore(1);
-            timer -= 1f;
+            gameTime -= 1f;
         }
     }
     

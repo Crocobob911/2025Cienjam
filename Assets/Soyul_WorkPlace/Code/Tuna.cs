@@ -11,7 +11,6 @@ public class Tuna : Enemy
     {
         // Enemy class
         base.Awake();
-        max_health = 5;
 
         // my class
         rb = GetComponent<Rigidbody2D>();

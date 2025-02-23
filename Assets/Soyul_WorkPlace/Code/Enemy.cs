@@ -1,11 +1,14 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour
 {
     protected string faction; public string GetFaction() { return faction; }
-    protected float health;
-    protected float max_health;
+    [SerializeField] protected float health;
+    [SerializeField] protected float max_health;
+
+    [SerializeField] protected TextMeshProUGUI textUI;
     
     public IObjectPool<GameObject> Pool { get; set; }
 
@@ -24,14 +27,21 @@ public class Enemy : MonoBehaviour
 
     private void InitStat()
     {
+        max_health = GetMaxHealthByDifficulty();
         health = max_health;
+        textUI.text = health.ToString();
     }
 
-    public void TakeDamage(float damage)
+    private int GetMaxHealthByDifficulty() {
+        return 10 + GameManager.INSTANCE.GetDifficulty();
+    }
+    
+    public virtual void TakeDamage(float damage)
     {
         if (health - damage > 0)
         {
             health -= damage;
+            textUI.text = health.ToString();
             GenerateEffect("Hit"); // enum?
             //DisplayNumber(damage);
         }
@@ -44,7 +54,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         health = 0;
-        ScoreManager.INSTANCE.AddScore(5);
+        GameManager.INSTANCE.AddScore(5);
         GenerateEffect("Die"); // enum?
         Pool.Release(gameObject);
     }

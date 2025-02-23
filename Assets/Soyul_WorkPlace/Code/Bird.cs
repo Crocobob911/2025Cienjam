@@ -11,7 +11,6 @@ public class Bird : Enemy
     {
         // Enemy class
         base.Awake();
-        max_health = 10;
 
         // my class
         rb = GetComponent<Rigidbody2D>();

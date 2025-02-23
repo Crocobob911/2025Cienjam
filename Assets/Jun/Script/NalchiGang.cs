@@ -70,7 +70,7 @@ public class NalchiGang : MonoBehaviour
 
         if (fishCount <= 0)
         {
-            ScoreManager.INSTANCE.GameOver();
+            GameManager.INSTANCE.GameOver();
         }
     }
 
