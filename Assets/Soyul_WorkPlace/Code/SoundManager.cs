@@ -38,6 +38,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(int index)
     {
+        sfxPlayers[index].volume = PlayerPrefs.GetFloat("SoundVolume", 0.2f);
         sfxPlayers[index].Play();
     }
 }
