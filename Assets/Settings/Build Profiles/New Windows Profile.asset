@@ -40,7 +40,7 @@ MonoBehaviour:
     - line: '|   targetDevice: 2'
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
-    - line: '|   companyName: 2025CienJam'
+    - line: '|   companyName: Tiananmen_Square'
     - line: '|   productName: ChineseFlyingFish'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
