@@ -28,6 +28,6 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy(int lane)
     {
         var enemyObj = EnemyPoolManager.Instance.Pool.Get();
-        enemyObj.transform.position = new Vector2(10f, lane * 3f);
+        enemyObj.transform.position = new Vector2(10f, lane * 3.5f);
     }
 }
