@@ -20,7 +20,7 @@ public class Eggs : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        max_health = (int)Mathf.Log(GameManager.INSTANCE.GetDifficulty(), 10) ;
+        max_health = (int)Mathf.Log(GameManager.INSTANCE.GetDifficulty(), 4) ;
         if(max_health < 1) max_health = 1;
         health = max_health;
         
@@ -29,7 +29,7 @@ public class Eggs : Enemy
     }
 
     public override void TakeDamage(float damage) {
-        base.TakeDamage(damage);
         NalchiGang.INSTANCE.AddNalchies((int)damage);
+        base.TakeDamage(damage);
     }
 }
